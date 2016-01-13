@@ -117,7 +117,7 @@
                                 <avalonDockControls:DropDownButton.DropDownContextMenu>
                                     <avalonDockControls:ContextMenuEx ItemsSource="{Binding Model.ChildrenSorted, RelativeSource={RelativeSource TemplatedParent}}">
                                         <avalonDockControls:ContextMenuEx.ItemContainerStyle>
-                                            <Style BasedOn="{StaticResource {x:Type MenuItem}}" TargetType="{x:Type avalonDockControls:MenuItemEx}">
+                                            <Style TargetType="{x:Type avalonDockControls:MenuItemEx}">
                                                 <Setter Property="HeaderTemplate" Value="{Binding Path=Root.Manager.DocumentPaneMenuItemHeaderTemplate}" />
                                                 <Setter Property="HeaderTemplateSelector" Value="{Binding Path=Root.Manager.DocumentPaneMenuItemHeaderTemplateSelector}" />
                                                 <Setter Property="IconTemplate" Value="{Binding Path=Root.Manager.IconContentTemplate}" />
@@ -372,7 +372,7 @@
                                         <Setter TargetName="Bd" Property="BorderThickness" Value="1,0,1,1" />
                                         <Setter Property="Panel.ZIndex" Value="1" />
                                     </Trigger>
-                                    
+
                                     <!-- Tool Window : Tab / Selected, active -->
                                     <MultiDataTrigger>
                                         <MultiDataTrigger.Conditions>
@@ -577,7 +577,7 @@
                             <Setter Property="Foreground" Value="{DynamicResource AvalonDockThemeVs2013ToolWindowCaptionActiveText}" />
                             <Setter TargetName="DragHandleGeometryPlaceholder" Property="Fill" Value="{DynamicResource AvalonDockThemeVs2013ToolWindowCaptionActiveGrip}" />
                         </DataTrigger>
-                        
+
                         <!-- Tool Window : Caption : Button / Active -->
                         <DataTrigger Binding="{Binding Model.IsActive, RelativeSource={RelativeSource Mode=Self}}" Value="True">
                             <Setter TargetName="PART_ImgMenuPin" Property="Fill" Value="{DynamicResource AvalonDockThemeVs2013ToolWindowCaptionButtonActiveGlyph}" />
@@ -717,18 +717,18 @@
                 <Setter TargetName="Bd" Property="BorderThickness" Value="0,6,0,0" />
                 <Setter TargetName="Bd" Property="Padding" Value="0,3,0,3" />
             </Trigger>
-            
+
             <Trigger Property="Side" Value="Top">
                 <Setter TargetName="Bd" Property="BorderThickness" Value="0,6,0,0" />
                 <Setter TargetName="Bd" Property="Padding" Value="0,3,0,3" />
             </Trigger>
-            
+
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter TargetName="Bd" Property="Background" Value="{DynamicResource AvalonDockThemeVs2013AutoHideTabHoveredBackground}" />
                 <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource AvalonDockThemeVs2013AutoHideTabHoveredBorder}" />
                 <Setter TargetName="Bd" Property="TextElement.Foreground" Value="{DynamicResource AvalonDockThemeVs2013AutoHideTabHoveredText}" />
             </Trigger>
-            
+
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
@@ -2035,7 +2035,8 @@
         </Setter>
     </Style>
 
-    <Style x:Key="{x:Type avalonDockControls:LayoutAutoHideWindowControl}" TargetType="{x:Type avalonDockControls:LayoutAutoHideWindowControl}">
+    <!--Comment out http://stackoverflow.com/a/25761352-->
+    <!--<Style x:Key="{x:Type avalonDockControls:LayoutAutoHideWindowControl}" TargetType="{x:Type avalonDockControls:LayoutAutoHideWindowControl}">
         <Setter Property="Background" Value="{DynamicResource AvalonDockThemeVs2013TabBackground}" />
         <Setter Property="AnchorableStyle">
             <Setter.Value>
@@ -2045,7 +2046,7 @@
                 </Style>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
 
     <Style x:Key="AvalonDockThemeVs2013NavigatorWindowListBoxItemFocusVisual">
